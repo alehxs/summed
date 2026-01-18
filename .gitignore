@@ -8,3 +8,6 @@
 # Build output
 target/
 build/
+
+# Project instructions (local only)
+CLAUDE.md
