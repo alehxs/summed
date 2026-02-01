@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AccountController {
-
     private final AccountService service;
 
     public AccountController(AccountService service) {
