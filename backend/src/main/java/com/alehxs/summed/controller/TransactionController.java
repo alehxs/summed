@@ -3,6 +3,7 @@ package com.alehxs.summed.controller;
 import com.alehxs.summed.model.Transaction;
 import com.alehxs.summed.services.TransactionService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,5 +20,10 @@ public class TransactionController {
     @GetMapping("/transactions")
     public List<Transaction> getAllTransactions() {
         return service.getAllTransactions();
+    }
+
+    @GetMapping("/transactions/{id}")
+    public Transaction getTransactionById(@PathVariable String id) {
+        return service.getTransactionById(id);
     }
 }

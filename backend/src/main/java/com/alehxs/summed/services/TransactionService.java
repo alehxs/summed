@@ -19,4 +19,9 @@ public class TransactionService {
     public List<Transaction> getAllTransactions () {
         return repository.findAll();
     }
+
+    public Transaction getTransactionById (String id){
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Transaction not found" + id));
+    }
 }

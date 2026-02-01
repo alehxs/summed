@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class TransactionRepository {
@@ -16,5 +17,12 @@ public class TransactionRepository {
                 new Transaction("2", "Test2", new BigDecimal("22.50"), LocalDate.of(2026, 1, 11), "Chick-fil-a", "29", "Food & Drinks"),
                 new Transaction("3", "Test3", new BigDecimal("225.50"), LocalDate.of(2026, 1, 1), "Pirelli Tyres", "67", "Utilites")
         );
+    }
+
+    public Optional<Transaction> findById(String id) {
+        return findAll()
+                .stream()
+                .filter(t -> t.getId().equals(id))
+                .findFirst();
     }
 }
