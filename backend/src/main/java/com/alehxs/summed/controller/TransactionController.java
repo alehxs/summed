@@ -2,11 +2,11 @@ package com.alehxs.summed.controller;
 
 import com.alehxs.summed.model.Transaction;
 import com.alehxs.summed.services.TransactionService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
+
 
 @RestController
 public class TransactionController {
@@ -26,4 +26,11 @@ public class TransactionController {
     public Transaction getTransactionById(@PathVariable String id) {
         return service.getTransactionById(id);
     }
+
+    @PostMapping("/transactions")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Transaction createTransaction(@RequestBody Transaction transaction) {
+        return service.createTransaction(transaction);
+    }
+
 }

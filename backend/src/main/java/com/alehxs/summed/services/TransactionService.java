@@ -24,4 +24,8 @@ public class TransactionService {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Transaction not found" + id));
     }
+
+    public Transaction createTransaction (Transaction transaction) {
+        return repository.save(transaction);
+    }
 }

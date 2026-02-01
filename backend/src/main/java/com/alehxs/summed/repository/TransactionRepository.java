@@ -25,4 +25,8 @@ public class TransactionRepository {
                 .filter(t -> t.getId().equals(id))
                 .findFirst();
     }
+
+    public Transaction save(Transaction transaction) {
+        return transaction;
+    }
 }
