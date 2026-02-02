@@ -33,4 +33,9 @@ public class TransactionController {
         return service.createTransaction(transaction);
     }
 
+    @PutMapping("/transactions/{id}")
+    public Transaction updateTransaction(@PathVariable String id, @RequestBody Transaction transaction) {
+        return service.updateTransaction(id, transaction);
+    }
+
 }

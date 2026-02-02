@@ -29,4 +29,9 @@ public class TransactionRepository {
     public Transaction save(Transaction transaction) {
         return transaction;
     }
+
+    public Optional<Transaction> update(String id, Transaction transaction) {
+        return findById(id).map(existing -> transaction);
+    }
 }
+

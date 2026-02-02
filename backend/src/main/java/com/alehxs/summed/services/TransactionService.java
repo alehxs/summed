@@ -28,4 +28,15 @@ public class TransactionService {
     public Transaction createTransaction (Transaction transaction) {
         return repository.save(transaction);
     }
+
+    public Transaction updateTransaction(String id, Transaction transaction) {
+        if (!transaction.getId().equals(id)) {
+            throw new IllegalArgumentException(
+                    "Path ID (" + id + ") does not match body ID (" + transaction.getId() + ")"
+            );
+        }
+
+        return repository.update(id, transaction)
+                .orElseThrow(() -> new RuntimeException("Transaction could not be updated" + id));
+    }
 }
